@@ -12,9 +12,40 @@ restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
 restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
 
 #1.-
-puts restaurant_menu.values.max
+puts restaurant_menu.key(restaurant_menu.values.max)
 
 #2.-
-puts restaurant_menu.values.min
+puts restaurant_menu.key(restaurant_menu.values.min)
 
 #3.-
+puts restaurant_menu.values.sum / restaurant_menu.count
+
+#4.-
+platos = []
+restaurant_menu.each_key do |key|
+  platos.push(key)
+end
+print "#{platos} \n"
+
+#5.-
+valores_platos = []
+restaurant_menu.each_value do |value|
+  valores_platos.push(value)
+end
+print "#{valores_platos} \n"
+
+#6.-
+restaurant_menu = restaurant_menu.map do |key, value|
+  [key, value * 1.19]
+end
+print "#{restaurant_menu} \n"
+
+#7.-
+restaurant_menu = restaurant_menu.map do |key, value|
+  if key.include? " "
+      [key, value * 0.8]
+    else
+      [key, value]
+  end
+end
+print restaurant_menu
